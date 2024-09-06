@@ -57,7 +57,7 @@ def comment_delete_question(request, comment_id):
     pybo 질문 댓글 삭제
     """
     comment = get_object_or_404(Comment, pk=comment_id)
-    if request.user != comment_id.author:
+    if request.user != comment.author:
         messages.error(request, '댓글삭제권한이 없습니다')
         return redirect('pybo:detail', question_id=comment.question_id)
     else:
