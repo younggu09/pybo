@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -25,7 +24,7 @@ SECRET_KEY = 'ls&1oied3t*np!^y6664m!j2-l%ie=8g$w-bjk_pjryzd#3y6b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.209.114.234']
+ALLOWED_HOSTS = ['52.78.8.100']
 
 
 # Application definition
@@ -128,7 +127,7 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-# 로깅 설정
+# 로깅설정
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -142,7 +141,7 @@ LOGGING = {
     },
     'formatters': {
         'django.server': {
-            '()' : 'django.utils.log.ServerFormatter',
+            '()': 'django.utils.log.ServerFormatter',
             'format': '[{server_time}] {message}',
             'style': '{',
         },
@@ -171,7 +170,7 @@ LOGGING = {
             'filters': ['require_debug_false'],
             'class': 'logging.handlers.RotatingFileHandler',
             'filename': BASE_DIR / 'logs/mysite.log',
-            'maxBytes': 1024*1024*5, # 5 MB
+            'maxBytes': 1024*1024*5,  # 5 MB
             'backupCount': 5,
             'formatter': 'standard',
         },
@@ -184,7 +183,11 @@ LOGGING = {
         'django.server': {
             'handlers': ['django.server'],
             'level': 'INFO',
-            'propagate': 'False',
+            'propagate': False,
+        },
+        'pybo': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
         },
     }
 }
